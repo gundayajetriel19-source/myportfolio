@@ -204,13 +204,10 @@
                         <div class="page-content">
                             <h2>Resume</h2>
 
-                            <div class="resume-page-controls" role="group" aria-label="Resume details">
-                                <button type="button" aria-label="Resume page 1" aria-pressed="true">1</button>
-                                <button type="button" aria-label="Resume page 2" aria-pressed="false">2</button>
-                                <button type="button" aria-label="Resume page 3" aria-pressed="false">3</button>
-                            </div>
+                            <p class="resume-swipe-hint">Swipe left or right to explore</p>
+                            <p class="resume-page-announcement" aria-live="polite" aria-atomic="true"></p>
 
-                            <div class="resume-box">
+                            <div class="resume-box" tabindex="0" aria-label="Resume details. Use the left and right arrow keys to change sections.">
                                 <div class="resume-subpage">
                                     <header class="resume-contact">
                                         <h3>JETRIEL GUNDAYA</h3>
@@ -312,20 +309,21 @@
         const pageNavigationLinks = [...document.querySelectorAll('.nav-bar nav a')];
         const albumPages = [...document.querySelectorAll('.album-page')];
         const resumeSubpages = [...document.querySelectorAll('.resume-subpage')];
-        const resumePageButtons = [...document.querySelectorAll('.resume-page-controls button')];
+        const resumeBox = document.querySelector('.resume-box');
+        const resumePageAnnouncement = document.querySelector('.resume-page-announcement');
+        const resumePageNames = ['Personal details', 'Education', 'Skills'];
         let activeResumePage = 0;
         let pageNavigationInitialized = false;
+        let resumeTouchStart;
 
         function activateResumePage(pageIndex) {
-            activeResumePage = pageIndex;
+            activeResumePage = Math.max(0, Math.min(pageIndex, resumeSubpages.length - 1));
 
             resumeSubpages.forEach((page, index) => {
                 page.hidden = mobilePageNavigation.matches && index !== activeResumePage;
             });
 
-            resumePageButtons.forEach((button, index) => {
-                button.setAttribute('aria-pressed', String(index === activeResumePage));
-            });
+            resumePageAnnouncement.textContent = `Showing resume ${resumePageNames[activeResumePage]}`;
         }
 
         function activateAlbumPage(pageId) {
@@ -371,10 +369,46 @@
             });
         });
 
-        resumePageButtons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                activateResumePage(index);
-            });
+        resumeBox.addEventListener('touchstart', (event) => {
+            if (!mobilePageNavigation.matches || event.touches.length !== 1) {
+                resumeTouchStart = undefined;
+                return;
+            }
+
+            resumeTouchStart = {
+                x: event.touches[0].clientX,
+                y: event.touches[0].clientY
+            };
+        }, { passive: true });
+
+        resumeBox.addEventListener('touchend', (event) => {
+            if (!mobilePageNavigation.matches || !resumeTouchStart || event.changedTouches.length !== 1) {
+                resumeTouchStart = undefined;
+                return;
+            }
+
+            const deltaX = event.changedTouches[0].clientX - resumeTouchStart.x;
+            const deltaY = event.changedTouches[0].clientY - resumeTouchStart.y;
+            resumeTouchStart = undefined;
+
+            if (Math.abs(deltaX) < 40 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+                return;
+            }
+
+            activateResumePage(activeResumePage + (deltaX < 0 ? 1 : -1));
+        }, { passive: true });
+
+        resumeBox.addEventListener('touchcancel', () => {
+            resumeTouchStart = undefined;
+        }, { passive: true });
+
+        resumeBox.addEventListener('keydown', (event) => {
+            if (!mobilePageNavigation.matches || !['ArrowLeft', 'ArrowRight'].includes(event.key)) {
+                return;
+            }
+
+            event.preventDefault();
+            activateResumePage(activeResumePage + (event.key === 'ArrowRight' ? 1 : -1));
         });
 
         mobilePageNavigation.addEventListener('change', updatePageNavigation);
