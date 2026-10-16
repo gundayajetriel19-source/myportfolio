@@ -92,6 +92,7 @@
 
                             <div class="spotify-player" id="spotifyPlayer">
                                 <div id="spotifyEmbed" aria-label="This Is JENNIE playlist on Spotify"></div>
+                                <p class="spotify-status" id="spotifyStatus" role="status" aria-live="polite" hidden></p>
                                 <a href="https://open.spotify.com/playlist/37i9dQZF1DWT43b6u5hZFk" target="_blank" rel="noopener noreferrer">Open playlist on Spotify</a>
                             </div>
                         </div>
@@ -428,15 +429,28 @@
         const disc = document.getElementById('disc');
         const toggle = document.getElementById('playToggle');
         const spotifyEmbed = document.getElementById('spotifyEmbed');
+        const spotifyStatus = document.getElementById('spotifyStatus');
         let spotifyController;
+        let spotifyIsPaused = true;
+        let spotifyPlaybackRequested = false;
+        let spotifyApiFailed = false;
 
         toggle.addEventListener('click', () => {
-            if (spotifyController) {
-                spotifyController.togglePlay();
-            } else if (mobilePageNavigation.matches) {
-                window.open('https://open.spotify.com/playlist/37i9dQZF1DWT43b6u5hZFk', '_blank', 'noopener,noreferrer');
+            if (!spotifyController) {
+                if (spotifyApiFailed) {
+                    return;
+                }
+
+                spotifyPlaybackRequested = true;
+                spotifyStatus.textContent = 'Loading music player…';
+                spotifyStatus.hidden = false;
+                return;
+            }
+
+            if (spotifyIsPaused) {
+                spotifyController.resume();
             } else {
-                document.getElementById('spotifyPlayer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                spotifyController.pause();
             }
         });
 
@@ -448,19 +462,32 @@
                 height: 352
             }, (controller) => {
                 spotifyController = controller;
+                spotifyStatus.hidden = true;
                 controller.addListener('playback_update', (event) => {
+                    spotifyIsPaused = event.data.isPaused;
                     const isPlaying = !event.data.isPaused && !event.data.isBuffering;
                     disc.classList.toggle('is-playing', isPlaying);
                     toggle.querySelector('.play-icon').textContent = isPlaying ? '❚❚' : '▶';
                     toggle.setAttribute('aria-label', isPlaying ? 'Pause JENNIE playlist' : 'Play JENNIE playlist');
                     toggle.setAttribute('aria-pressed', String(isPlaying));
                 });
+
+                if (spotifyPlaybackRequested) {
+                    spotifyPlaybackRequested = false;
+                    controller.resume();
+                }
             });
         };
 
         const spotifyIframeApi = document.createElement('script');
         spotifyIframeApi.src = 'https://open.spotify.com/embed/iframe-api/v1';
         spotifyIframeApi.async = true;
+        spotifyIframeApi.addEventListener('error', () => {
+            spotifyApiFailed = true;
+            spotifyStatus.textContent = 'The music player could not load. You can open the playlist on Spotify instead.';
+            spotifyStatus.hidden = false;
+            toggle.setAttribute('aria-label', 'Music player unavailable; open playlist on Spotify');
+        });
         document.head.appendChild(spotifyIframeApi);
 
         const cursorLight = document.querySelector('.cursor-light');
