@@ -918,6 +918,18 @@ h1, h2, h3 {
     margin-top: 1.5rem;
 }
 
+.resume-subpage {
+    display: contents;
+}
+
+.resume-subpage[hidden] {
+    display: none;
+}
+
+.resume-page-controls {
+    display: none;
+}
+
 .resume-contact {
     padding-bottom: 0.85rem;
     border-bottom: 1px solid rgba(104, 58, 66, 0.2);
@@ -938,6 +950,11 @@ h1, h2, h3 {
     font-size: 0.78rem;
     font-style: normal;
     line-height: 1.6;
+}
+
+.resume-contact address,
+.resume-contact-links a {
+    overflow-wrap: anywhere;
 }
 
 .resume-contact-links {
@@ -996,7 +1013,7 @@ h1, h2, h3 {
 
 .education-list div {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.15rem 0.6rem;
     color: #493b40;
     font-size: 0.75rem;
@@ -1323,10 +1340,16 @@ h1, h2, h3 {
 
     .page-grid {
         min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .page-grid::before {
         display: none;
+    }
+
+    .album-visual,
+    .page-content {
+        min-width: 0;
     }
 
     .album-visual {
@@ -1346,10 +1369,19 @@ h1, h2, h3 {
 }
 
 @media (max-width: 560px) {
+    .content-wrap {
+        margin: 0.5rem 0.55rem 1rem;
+    }
+
+    .nav-bar {
+        gap: 0.65rem;
+        padding: 1rem 0.75rem;
+    }
+
     .album-story {
-        margin: 0.7rem;
-        padding: 0.8rem 0.65rem 0.8rem 1rem;
-        border-left-width: 8px;
+        margin: 0.55rem;
+        padding: 0.65rem 0.55rem 0.65rem 0.75rem;
+        border-left-width: 6px;
     }
 
     .album-page {
@@ -1357,15 +1389,35 @@ h1, h2, h3 {
     }
 
     .album-visual {
-        padding: 2.3rem 0.8rem 1.3rem;
+        padding: 2.1rem 0.7rem 1.2rem;
     }
 
     .page-content {
-        padding: 1.8rem 1rem 2rem;
+        padding: 1.5rem 0.8rem 1.7rem;
     }
 
     .photo-frame {
         min-height: 150px;
+    }
+
+    .logo {
+        font-size: 0.95rem;
+    }
+
+    .nav-bar nav {
+        gap: 0.55rem;
+    }
+
+    .nav-bar nav a {
+        font-size: 0.78rem;
+    }
+
+    .nav-controls {
+        gap: 0.55rem;
+    }
+
+    .resume-skills {
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
@@ -1744,5 +1796,381 @@ body[data-theme="dark"] .spotify-player > a {
 @media (prefers-reduced-motion: reduce) {
     .theme-toggle {
         transition: none;
+    }
+}
+
+@media (max-width: 560px) {
+    html.mobile-paged {
+        height: 100%;
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+
+    body.mobile-paged {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        min-height: 0;
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+
+    body.mobile-paged .page-shell {
+        display: flex;
+        height: 100vh;
+        height: 100dvh;
+        min-height: 0;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    body.mobile-paged .sidebar {
+        flex: 0 0 auto;
+        padding: 0.55rem 0.8rem;
+    }
+
+    body.mobile-paged .content-wrap {
+        display: flex;
+        flex: 1 1 auto;
+        min-height: 0;
+        flex-direction: column;
+        margin: 0.35rem 0.55rem 0.55rem;
+        overflow: hidden;
+    }
+
+    body.mobile-paged .nav-bar {
+        flex: 0 0 auto;
+        padding: 0.55rem 0.4rem;
+        gap: 0;
+    }
+
+    body.mobile-paged .nav-bar > .logo {
+        display: none;
+    }
+
+    body.mobile-paged .nav-controls {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.4rem;
+    }
+
+    body.mobile-paged .nav-bar nav {
+        gap: 0.65rem;
+    }
+
+    body.mobile-paged .nav-bar nav a {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.15rem;
+    }
+
+    body.mobile-paged .theme-toggle {
+        width: 34px;
+        height: 34px;
+    }
+
+    body.mobile-paged .nav-bar nav a[aria-current="page"] {
+        color: var(--rose-deep);
+        text-decoration: underline;
+        text-underline-offset: 0.3rem;
+    }
+
+    body.mobile-paged .album-story {
+        display: block;
+        flex: 1 1 auto;
+        min-height: 0;
+        margin: 0;
+        padding: 0.45rem;
+        overflow: hidden;
+    }
+
+    body.mobile-paged .album-page:not([hidden]) {
+        height: 100%;
+        padding: 0.3rem;
+        overflow: hidden;
+    }
+
+    body.mobile-paged .page-grid {
+        height: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    body.mobile-paged .album-visual,
+    body.mobile-paged .page-content {
+        min-height: 0;
+        min-width: 0;
+    }
+
+    body.mobile-paged .album-visual {
+        padding: 1.7rem 0.6rem 0.5rem;
+    }
+
+    body.mobile-paged .disc {
+        width: min(56vw, 210px, 23dvh);
+        border-width: 8px;
+    }
+
+    body.mobile-paged #spotifyEmbed {
+        display: none;
+    }
+
+    body.mobile-paged .spotify-player iframe {
+        display: none;
+    }
+
+    body.mobile-paged .spotify-player {
+        width: auto;
+        min-height: 0;
+    }
+
+    body.mobile-paged .spotify-player > a {
+        margin-top: 0;
+    }
+
+    body.mobile-paged .cover-page .bio-copy {
+        margin-bottom: 0.5rem;
+        font-size: 0.94rem;
+        line-height: 1.6;
+    }
+
+    body.mobile-paged #projects .album-visual,
+    body.mobile-paged #stack .album-visual,
+    body.mobile-paged #resume .album-visual {
+        display: none;
+    }
+
+    body.mobile-paged #projects .page-grid,
+    body.mobile-paged #stack .page-grid,
+    body.mobile-paged #resume .page-grid {
+        grid-template-rows: minmax(0, 1fr);
+    }
+
+    body.mobile-paged .page-content {
+        padding: 1.4rem 0.8rem 0.65rem;
+        overflow: hidden;
+    }
+
+    body.mobile-paged .page-content h1,
+    body.mobile-paged .page-content h2 {
+        margin-bottom: 0.45rem;
+        font-size: clamp(1.55rem, 7vw, 2rem);
+    }
+
+    body.mobile-paged .project-list {
+        gap: 0.45rem;
+        margin-top: 0.6rem;
+    }
+
+    body.mobile-paged .project-card-mini {
+        padding: 0.6rem;
+    }
+
+    body.mobile-paged .project-header {
+        gap: 0.5rem;
+        margin-bottom: 0.35rem;
+        font-size: 0.78rem;
+    }
+
+    body.mobile-paged .project-card-mini p {
+        font-size: 0.7rem;
+        line-height: 1.35;
+    }
+
+    body.mobile-paged .skill-groups {
+        gap: 0.45rem;
+    }
+
+    body.mobile-paged .skill-group-title {
+        font-size: 0.75rem;
+    }
+
+    body.mobile-paged .skill-group .stack-list {
+        gap: 0.35rem;
+        margin-top: 0.3rem;
+    }
+
+    body.mobile-paged .stack-pill {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.62rem;
+    }
+
+    body.mobile-paged #resume .page-content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1.35rem;
+    }
+
+    body.mobile-paged #resume .resume-page-controls {
+        display: flex;
+        flex: 0 0 auto;
+        gap: 0.35rem;
+        margin: 0.2rem 0 0;
+    }
+
+    body.mobile-paged #resume .resume-page-controls button {
+        width: 1.8rem;
+        height: 1.8rem;
+        padding: 0;
+        border: 1px solid rgba(143, 58, 81, 0.3);
+        border-radius: 50%;
+        color: #8f3a51;
+        background: rgba(255, 255, 255, 0.45);
+        font: inherit;
+        font-size: 0.65rem;
+    }
+
+    body.mobile-paged #resume .resume-page-controls button[aria-pressed="true"] {
+        color: #fff;
+        background: #8f3a51;
+    }
+
+    body.mobile-paged #resume .resume-box {
+        display: block;
+        flex: 1 1 auto;
+        min-height: 0;
+        margin-top: 0.4rem;
+        overflow: hidden;
+    }
+
+    body.mobile-paged #resume .resume-subpage:not([hidden]) {
+        display: block;
+        height: 100%;
+    }
+
+    body.mobile-paged #resume .resume-subpage:not([hidden]) > .resume-section:first-child {
+        margin-top: 0;
+    }
+
+    body.mobile-paged #resume .resume-contact {
+        padding-bottom: 0.4rem;
+    }
+
+    body.mobile-paged #resume .resume-contact h3 {
+        font-size: 0.95rem;
+    }
+
+    body.mobile-paged #resume .resume-contact address,
+    body.mobile-paged #resume .resume-contact-links,
+    body.mobile-paged #resume .resume-contact-links a {
+        font-size: 0.64rem;
+        line-height: 1.35;
+    }
+
+    body.mobile-paged #resume .resume-section {
+        margin-top: 0.25rem;
+    }
+
+    body.mobile-paged #resume .resume-section h3 {
+        margin-bottom: 0.12rem;
+        font-size: 0.6rem;
+    }
+
+    body.mobile-paged #resume .resume-section p,
+    body.mobile-paged #resume .resume-facts dd,
+    body.mobile-paged #resume .resume-skills,
+    body.mobile-paged #resume .education-list div {
+        font-size: 0.64rem;
+        line-height: 1.3;
+    }
+
+    body.mobile-paged #resume .resume-facts {
+        gap: 0.2rem 0.5rem;
+    }
+
+    body.mobile-paged #resume .resume-facts dt,
+    body.mobile-paged #resume .education-list time {
+        font-size: 0.55rem;
+    }
+
+    body.mobile-paged #resume .education-list {
+        gap: 0.15rem;
+    }
+
+    body.mobile-paged #resume .resume-box ul {
+        margin: 0.2rem 0 0.25rem 0.8rem;
+        line-height: 1.25;
+    }
+
+    body.mobile-paged #resume .resume-skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.1rem 0.4rem;
+    }
+
+    @media (max-height: 700px) {
+        body.mobile-paged .nav-bar {
+            padding: 0.35rem;
+        }
+
+        body.mobile-paged .sidebar {
+            padding: 0.35rem 0.8rem;
+        }
+
+        body.mobile-paged .sidebar-top .logo-link {
+            width: 44px;
+            height: 44px;
+        }
+
+        body.mobile-paged .cover-page .page-grid {
+            grid-template-rows: minmax(0, 0.7fr) minmax(0, 1fr);
+        }
+
+        body.mobile-paged .cover-page .album-visual {
+            gap: 0.2rem;
+            padding: 1rem 0.4rem 0.2rem;
+        }
+
+        body.mobile-paged .disc {
+            width: min(22vw, 90px);
+        }
+
+        body.mobile-paged .cover-page .page-content {
+            padding: 0.45rem 0.55rem;
+        }
+
+        body.mobile-paged .cover-page .page-content .bio-heading {
+            font-size: 1.6rem;
+        }
+
+        body.mobile-paged .cover-page .bio-copy {
+            margin-bottom: 0.2rem;
+            font-size: 0.74rem;
+            line-height: 1.35;
+        }
+
+        body.mobile-paged .cover-page .bio-eyebrow,
+        body.mobile-paged .cover-page .bio-role {
+            margin-bottom: 0.35rem;
+            font-size: 0.6rem;
+        }
+
+        body.mobile-paged #projects .page-content {
+            padding: 1.2rem 0.55rem 0.4rem;
+        }
+
+        body.mobile-paged #projects .project-list {
+            gap: 0.3rem;
+            margin-top: 0.35rem;
+        }
+
+        body.mobile-paged #projects .project-card-mini {
+            padding: 0.4rem;
+        }
+
+        body.mobile-paged #projects .project-header {
+            margin-bottom: 0.2rem;
+            font-size: 0.7rem;
+        }
+
+        body.mobile-paged #projects .project-card-mini p {
+            font-size: 0.62rem;
+            line-height: 1.25;
+        }
+
+        body.mobile-paged #resume .page-content {
+            padding-top: 1rem;
+        }
     }
 }
