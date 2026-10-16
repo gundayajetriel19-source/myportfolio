@@ -196,6 +196,75 @@ h1, h2, h3 {
     transform: translateY(-1px);
 }
 
+.games-menu {
+    position: relative;
+}
+
+.nav-bar nav .games-menu > summary {
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    list-style: none;
+    transition: color 0.25s ease;
+}
+
+.nav-bar nav .games-menu > summary::-webkit-details-marker {
+    display: none;
+}
+
+.nav-bar nav .games-menu > summary::after {
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin: 0 0 0.15rem 0.45rem;
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    content: "";
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.games-menu[open] > summary::after {
+    margin-bottom: 0;
+    transform: rotate(225deg);
+}
+
+.nav-bar nav .games-menu > summary:hover,
+.games-menu[open] > summary {
+    color: var(--rose);
+}
+
+.games-menu-list {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    z-index: 30;
+    display: grid;
+    min-width: 10rem;
+    padding: 0.4rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 0.7rem;
+    background: rgba(255, 248, 250, 0.98);
+    box-shadow: 0 12px 28px rgba(15, 6, 11, 0.2);
+}
+
+.games-menu-list a {
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.4rem;
+    color: var(--text);
+    font-size: 0.85rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.games-menu-list a:hover,
+.games-menu-list a:focus-visible {
+    color: var(--rose-deep);
+    background: rgba(255, 122, 168, 0.12);
+    transform: none;
+}
+
 
 .album-story {
     display: grid;
@@ -1430,6 +1499,10 @@ h1, h2, h3 {
         font-size: 0.78rem;
     }
 
+    .nav-bar nav .games-menu > summary {
+        font-size: 0.78rem;
+    }
+
     .nav-controls {
         gap: 0.55rem;
     }
@@ -1683,6 +1756,10 @@ body[data-theme="dark"] .nav-bar {
     box-shadow: 0 8px 18px rgba(12, 3, 8, 0.22);
 }
 
+body[data-theme="dark"] .games-menu-list {
+    background: rgba(48, 12, 27, 0.98);
+}
+
 body[data-theme="dark"] .theme-icon-moon {
     display: none;
 }
@@ -1880,6 +1957,11 @@ body[data-theme="dark"] .spotify-player > a {
     }
 
     body.mobile-paged .nav-bar nav a {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.15rem;
+    }
+
+    body.mobile-paged .nav-bar nav .games-menu > summary {
         font-size: 0.75rem;
         padding: 0.35rem 0.15rem;
     }
