@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JETRIEL GUNDAYA | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+    <div class="ruby-trim" aria-hidden="true">
+        <span class="ruby-gem ruby-gem-top-left"></span>
+        <span class="ruby-gem ruby-gem-top-right"></span>
+        <span class="ruby-gem ruby-gem-bottom-left"></span>
+        <span class="ruby-gem ruby-gem-bottom-right"></span>
+        <span class="ruby-spark ruby-spark-top"></span>
+        <span class="ruby-spark ruby-spark-right"></span>
+        <span class="ruby-spark ruby-spark-bottom"></span>
+        <span class="ruby-spark ruby-spark-left"></span>
+        <span class="cursor-light"></span>
+    </div>
+
+    <div class="page-shell">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <a href="index.html" class="logo-link" title="Refresh Page">
+                    <svg class="logo-icon" width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="none" stroke="#ff7aa8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <text x="50" y="62" font-size="38" font-family="Arial, sans-serif" font-weight="bold" fill="#ff7aa8" text-anchor="middle">J</text>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="sidebar-bottom">
+                <ul class="social-list">
+                    <li>
+                        <a href="https://x.com/GundayaJetriel" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/urjet_plain" target="_blank" rel="noopener noreferrer" title="Instagram">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/jetriel.gundaya.3" target="_blank" rel="noopener noreferrer" title="Facebook">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="content-wrap">
+            <header class="nav-bar">
+                <div class="logo">JETRIEL GUNDAYA</div>
+                <div class="nav-controls">
+                    <nav>
+                        <a href="#bio">Bio</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#stack">Skills</a>
+                        <a href="#resume">Resume</a>
+                    </nav>
+                    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+                        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20.9 13.1A8.5 8.5 0 0 1 10.9 3.1 8.5 8.5 0 1 0 20.9 13.1Z"></path>
+                        </svg>
+                        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <main class="album-story">
+                <section class="album-page cover-page" id="bio">
+                    <div class="page-label">Side A</div>
+                    <div class="page-grid">
+                        <div class="album-visual" aria-label="Album artwork section">
+                            <div class="disc-shell">
+                                <div class="disc" id="disc">
+                                    <div class="disc-label">J</div>
+                                    <button class="disc-play" id="playToggle" type="button" aria-label="Play JENNIE playlist" title="Play or pause JENNIE music">
+                                        <span class="play-icon">▶</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="spotify-player" id="spotifyPlayer">
+                                <div id="spotifyEmbed" aria-label="This Is JENNIE playlist on Spotify"></div>
+                                <a href="https://open.spotify.com/playlist/37i9dQZF1DWT43b6u5hZFk" target="_blank" rel="noopener noreferrer">Open playlist on Spotify</a>
+                            </div>
+                        </div>
+
+                        <div class="page-content">
+                            <p class="eyebrow bio-eyebrow">A little about me</p>
+                            <h1 class="bio-heading">Hi, I'm <span>Jetriel<br>Gundaya</span></h1>
+                            <p class="bio-role">IT student <span></span> always learning</p>
+                            <p class="bio-copy">
+                                I’m dedicated to growing my practical knowledge and professional skills. I bring care, accuracy, and efficiency to every task. Looking forward to contributing while learning from experienced teams.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="album-page" id="projects">
+                    <div class="page-label">Side B</div>
+                    <div class="page-grid alternate-grid">
+                        <div class="album-visual compact-visual">
+                            <div class="photo-frame photo-projects">
+                                <img src="project-management.jpg" alt="Person working at a laptop with digital interface graphics">
+                            </div>
+                        </div>
+
+                        <div class="page-content">
+                            <h2>Projects</h2>
+
+                            <div class="project-list">
+                                <div class="project-card-mini">
+                                    <div class="project-header">
+                                        <span class="project-tag">01</span>
+                                        <span>E-Commerce POS System</span>
+                                    </div>
+                                    <p>A comprehensive point-of-sale system designed for modern e-commerce businesses, streamlining inventory management and sales processes.</p>
+                                </div>
+
+                                <div class="project-card-mini">
+                                    <div class="project-header">
+                                        <span class="project-tag">02</span>
+                                        <span>Mini Dam Water Gate Controller using Arduino UNO</span>
+                                    </div>
+                                    <p>A simple yet effective water gate controller designed for small-scale dam systems, utilizing the Arduino UNO microcontroller for automated operation of the gate.</p>
+                                </div>
+
+                                <div class="project-card-mini">
+                                    <div class="project-header">
+                                        <span class="project-tag">03</span>
+                                        <span>SRTR (Select Right, Throw Right): A Waste Segregation Management System with AI-Assisted Image Recognition</span>
+                                    </div>
+                                    <p>An innovative waste segregation system that utilizes AI-powered image recognition to improve sorting accuracy and efficiency.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="album-page" id="stack">
+                    <div class="page-label">Side C</div>
+                    <div class="page-grid">
+                        <div class="album-visual compact-visual">
+                            <div class="photo-frame photo-stack">
+                                <img src="dac-www-3.png" alt="Technology and business interface icons on a blue background">
+                            </div>
+                        </div>
+
+                        <div class="page-content">
+                            <h2>SKILLS</h2>
+
+                            <div class="skill-groups">
+                                <section class="skill-group" aria-labelledby="frontend-skills">
+                                <br><h3 class="skill-group-title" id="frontend-skills">Frontend</h3>
+                                <div class="stack-list">
+                                    <span class="stack-pill">HTML</span>
+                                    <span class="stack-pill">React.js</span>
+                                    <span class="stack-pill">JavaScript</span>
+                                </div>
+                                </section>
+
+                                <section class="skill-group" aria-labelledby="backend-skills">
+                                <h3 class="skill-group-title" id="backend-skills">Backend</h3>
+                                <div class="stack-list">
+                                    <span class="stack-pill">Node.js</span>
+                                    <span class="stack-pill">Python</span>
+                                    <span class="stack-pill">SQL</span>
+                                </div>
+                                </section>
+
+                                <section class="skill-group" aria-labelledby="design-skills">
+                                <h3 class="skill-group-title" id="design-skills">Styling and Design</h3>
+                                <div class="stack-list">
+                                    <span class="stack-pill">CSS</span>
+                                    <span class="stack-pill">CSS Module</span>
+                                    <span class="stack-pill">Bootstrap</span>
+                                </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="album-page" id="resume">
+                    <div class="page-label">Side D</div>
+                    <div class="page-grid alternate-grid">
+                        <div class="album-visual compact-visual">
+                            <div class="photo-frame photo-resume">
+                                <img id="resumePhoto" src="1660816932101.jpg" alt="Resume portrait" hidden>
+                            </div>
+                        </div>
+
+                        <div class="page-content">
+                            <h2>Resume</h2>
+
+                            <div class="resume-box">
+                                <header class="resume-contact">
+                                    <h3>JETRIEL GUNDAYA</h3>
+                                    <address>Block 1 Lot 45 Phase-1E Kasiglahan Village, San Jose, Montalban, Rizal</address>
+                                    <div class="resume-contact-links">
+                                        <a href="tel:09389281322">09389281322</a>
+                                        <a href="mailto:gundayajetriel.19@gmail.com">gundayajetriel.19@gmail.com</a>
+                                    </div>
+                                </header>
+
+                                <section class="resume-section">
+                                    <h3>Professional Summary</h3>
+                                    <p>Hardworking and dedicated IT student looking to broaden my practical knowledge and professional skills. Committed to giving my best effort in completing assigned tasks with accuracy and efficiency. Eager to contribute to daily operations while continuously learning from industry experts.</p>
+                                </section>
+
+                                <section class="resume-section">
+                                    <h3>Personal Data</h3>
+                                    <dl class="resume-facts">
+                                        <div><dt>Birthdate</dt><dd>June 19, 2003</dd></div>
+                                        <div><dt>Birthplace</dt><dd>Alicia, Bohol</dd></div>
+                                        <div><dt>Age</dt><dd>23</dd></div>
+                                        <div><dt>Civil Status</dt><dd>Single</dd></div>
+                                        <div><dt>Nationality</dt><dd>Filipino</dd></div>
+                                        <div><dt>Gender</dt><dd>Female</dd></div>
+                                    </dl>
+                                </section>
+
+                                <section class="resume-section">
+                                    <h3>Education</h3>
+                                    <div class="education-list">
+                                         <div><strong>Tertiary Education</strong><span>St. Joseph's College of Rodriguez</span><time>2023–PRESENT</time></div>
+                                        <div><strong>Senior High School</strong><span>Alicia Technical Vocational High School</span><time>2021–2022</time></div>
+                                        <div><strong>Junior High School</strong><span>Alicia Technical Vocational High School</span><time>2019–2020</time></div>
+                                        <div><strong>Elementary School</strong><span>Putlongcam Elementary School</span><time>2015–2016</time></div>
+                                    </div>
+                                </section>
+
+                                <section class="resume-section">
+                                    <h3>Technical Skills</h3>
+                                    <ul class="resume-skills">
+                                        <li>MS Word and PowerPoint</li>
+                                        <li>Basic Computer Skills</li>
+                                        <li>Basic Programming Skills</li>
+                                        <li>Database Management</li>
+                                    </ul>
+                                </section>
+
+                                <section class="resume-section">
+                                    <h3>Soft Skills</h3>
+                                    <ul class="resume-skills">
+                                        <li>Hardworking</li>
+                                        <li>Time Management</li>
+                                        <li>Attention to Detail</li>
+                                        <li>Adaptability and Flexibility</li>
+                                    </ul>
+                                </section>
+
+                                <section class="resume-section">
+                                    <h3>Languages</h3>
+                                    <p>Filipino, English</p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('portfolio-theme');
+
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+            document.body.dataset.theme = savedTheme;
+        }
+
+        function updateThemeToggle() {
+            const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} mode`);
+            themeToggle.setAttribute('aria-pressed', String(document.body.dataset.theme === 'dark'));
+            themeToggle.title = `Switch to ${nextTheme} mode`;
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('portfolio-theme', document.body.dataset.theme);
+            updateThemeToggle();
+        });
+
+        updateThemeToggle();
+
+        const disc = document.getElementById('disc');
+        const toggle = document.getElementById('playToggle');
+        const spotifyEmbed = document.getElementById('spotifyEmbed');
+        let spotifyController;
+
+        toggle.addEventListener('click', () => {
+            if (spotifyController) {
+                spotifyController.togglePlay();
+            } else {
+                document.getElementById('spotifyPlayer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+
+        window.onSpotifyIframeApiReady = (IFrameAPI) => {
+            const playerWidth = Math.min(352, document.getElementById('spotifyPlayer').clientWidth);
+            IFrameAPI.createController(spotifyEmbed, {
+                uri: 'spotify:playlist:37i9dQZF1DWT43b6u5hZFk',
+                width: playerWidth,
+                height: 352
+            }, (controller) => {
+                spotifyController = controller;
+                controller.addListener('playback_update', (event) => {
+                    const isPlaying = !event.data.isPaused && !event.data.isBuffering;
+                    disc.classList.toggle('is-playing', isPlaying);
+                    toggle.querySelector('.play-icon').textContent = isPlaying ? '❚❚' : '▶';
+                    toggle.setAttribute('aria-label', isPlaying ? 'Pause JENNIE playlist' : 'Play JENNIE playlist');
+                    toggle.setAttribute('aria-pressed', String(isPlaying));
+                });
+            });
+        };
+
+        const spotifyIframeApi = document.createElement('script');
+        spotifyIframeApi.src = 'https://open.spotify.com/embed/iframe-api/v1';
+        spotifyIframeApi.async = true;
+        document.head.appendChild(spotifyIframeApi);
+
+        const cursorLight = document.querySelector('.cursor-light');
+        const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+        let cursorLightTimeout;
+
+        const resumePhoto = document.getElementById('resumePhoto');
+        const resumePhotoPrompt = document.getElementById('resumePhotoPrompt');
+
+        function showResumePhoto() {
+            resumePhoto.hidden = false;
+            if (resumePhotoPrompt) {
+                resumePhotoPrompt.hidden = true;
+            }
+        }
+
+        resumePhoto.addEventListener('load', showResumePhoto);
+
+        if (resumePhoto.complete && resumePhoto.naturalWidth > 0) {
+            showResumePhoto();
+        }
+
+        if (finePointer.matches) {
+            window.addEventListener('pointermove', (event) => {
+                cursorLight.style.left = `${event.clientX}px`;
+                cursorLight.style.top = `${event.clientY}px`;
+                cursorLight.classList.add('is-active');
+                window.clearTimeout(cursorLightTimeout);
+                cursorLightTimeout = window.setTimeout(() => {
+                    cursorLight.classList.remove('is-active');
+                }, 320);
+            });
+
+            window.addEventListener('blur', () => {
+                cursorLight.classList.remove('is-active');
+            });
+        }
+    </script>
+</body>
+</html>
