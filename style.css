@@ -265,6 +265,282 @@ h1, h2, h3 {
     transform: none;
 }
 
+.games-menu-list button {
+    padding: 0.65rem 0.75rem;
+    border: 0;
+    border-radius: 0.4rem;
+    color: var(--text);
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.85rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.games-menu-list button:hover,
+.games-menu-list button:focus-visible {
+    color: var(--rose-deep);
+    background: rgba(255, 122, 168, 0.12);
+}
+
+.game-dialog {
+    width: min(92vw, 680px);
+    max-width: none;
+    max-height: min(90dvh, 820px);
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid var(--panel-border);
+    border-radius: 1.2rem;
+    color: var(--text);
+    background: #fff8fa;
+    box-shadow: 0 24px 80px rgba(15, 6, 11, 0.4);
+}
+
+.game-dialog::backdrop {
+    background: rgba(24, 8, 16, 0.72);
+    backdrop-filter: blur(5px);
+}
+
+.game-dialog-content {
+    padding: clamp(1rem, 4vw, 2rem);
+}
+
+.game-dialog-header,
+.game-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.game-dialog-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+.game-dialog-header .eyebrow {
+    margin-bottom: 0.25rem;
+}
+
+.game-dialog-header h2,
+.game-heading h3 {
+    color: var(--text);
+}
+
+.game-close {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid var(--panel-border);
+    border-radius: 50%;
+    color: var(--text);
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+.game-heading {
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+}
+
+.game-heading p {
+    margin-top: 0.25rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.game-action {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--rose);
+    border-radius: 999px;
+    color: #fff;
+    background: var(--rose-deep);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.game-action:hover,
+.game-action:focus-visible {
+    filter: brightness(1.08);
+}
+
+.game-status {
+    min-height: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.4rem, 2vw, 0.75rem);
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.memory-card {
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid var(--panel-border);
+    border-radius: 0.8rem;
+    color: var(--text);
+    background: linear-gradient(145deg, rgba(255, 122, 168, 0.2), rgba(138, 92, 246, 0.12));
+    cursor: pointer;
+    font-size: clamp(1.4rem, 7vw, 2.5rem);
+    transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.memory-card:not(:disabled):hover {
+    transform: translateY(-2px);
+}
+
+.memory-card.is-revealed,
+.memory-card.is-matched {
+    background: rgba(255, 122, 168, 0.14);
+}
+
+.memory-card.is-matched {
+    border-color: var(--rose);
+    cursor: default;
+}
+
+.game-score {
+    display: grid;
+    min-width: 4.5rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 0.55rem;
+    background: rgba(255, 122, 168, 0.14);
+    text-align: center;
+}
+
+.game-score span {
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+}
+
+.game-score strong {
+    font-size: 1.15rem;
+}
+
+.board2048 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.3rem, 1.5vw, 0.55rem);
+    width: min(100%, 390px);
+    margin: 0 auto;
+    padding: clamp(0.4rem, 2vw, 0.7rem);
+    border-radius: 0.9rem;
+    background: #a98591;
+}
+
+.tile2048 {
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 0.55rem;
+    color: #563943;
+    background: #f3e7e9;
+    font-size: clamp(1rem, 5vw, 1.8rem);
+    font-weight: 700;
+}
+
+.tile2048[data-value="0"] {
+    color: transparent;
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.tile2048[data-value="2"] { background: #fff6e9; }
+.tile2048[data-value="4"] { background: #ffe8cc; }
+.tile2048[data-value="8"] { color: #fff; background: #f3a879; }
+.tile2048[data-value="16"] { color: #fff; background: #ee875f; }
+.tile2048[data-value="32"] { color: #fff; background: #e96d6f; }
+.tile2048[data-value="64"] { color: #fff; background: #dc5360; }
+.tile2048[data-value="128"],
+.tile2048[data-value="256"],
+.tile2048[data-value="512"] { color: #fff; background: #b65e9b; }
+.tile2048[data-value="1024"],
+.tile2048[data-value="2048"] { color: #fff; background: #8055a5; }
+
+.game-direction-controls {
+    display: grid;
+    justify-items: center;
+    gap: 0.35rem;
+    margin-top: 0.75rem;
+}
+
+.game-direction-controls div {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.game-direction-controls button {
+    width: 2.8rem;
+    height: 2.5rem;
+    border: 1px solid var(--panel-border);
+    border-radius: 0.65rem;
+    color: var(--text);
+    background: rgba(255, 122, 168, 0.14);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.mole-scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0 0.25rem;
+}
+
+.mole-scoreboard p {
+    color: var(--muted);
+}
+
+.mole-scoreboard strong {
+    margin-left: 0.25rem;
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.mole-board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.45rem, 2vw, 0.85rem);
+    width: min(100%, 360px);
+    margin: 0 auto;
+}
+
+.mole-hole {
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid var(--panel-border);
+    border-radius: 50%;
+    color: var(--text);
+    background: radial-gradient(circle at 50% 40%, #765064, #3b2936 72%);
+    cursor: pointer;
+    font-size: clamp(1.3rem, 7vw, 2.2rem);
+}
+
+.mole-hole:disabled {
+    cursor: default;
+}
+
+.mole-hole.is-active {
+    background: radial-gradient(circle at 50% 35%, #ffcf8a, #bc6682 72%);
+}
+
 
 .album-story {
     display: grid;
@@ -1758,6 +2034,10 @@ body[data-theme="dark"] .nav-bar {
 
 body[data-theme="dark"] .games-menu-list {
     background: rgba(48, 12, 27, 0.98);
+}
+
+body[data-theme="dark"] .game-dialog {
+    background: #21171d;
 }
 
 body[data-theme="dark"] .theme-icon-moon {
