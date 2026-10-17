@@ -185,9 +185,6 @@
                                 <div class="resume-subpage">
                                     <header class="resume-contact">
                                         <h3>JETRIEL GUNDAYA</h3>
-                                        <address>Block 1 Lot 45 Phase-1E Kasiglahan Village, San Jose, Montalban, Rizal</address>
-                                        <div class="resume-contact-links">
-                                            <a href="tel:09389281322">09389281322</a>
                                             <a href="mailto:gundayajetriel.19@gmail.com">gundayajetriel.19@gmail.com</a>
                                         </div>
                                     </header>
@@ -200,7 +197,6 @@
                                     <section class="resume-section">
                                         <h3>Personal Data</h3>
                                         <dl class="resume-facts">
-                                            <div><dt>Birthdate</dt><dd>June 19, 2003</dd></div>
                                             <div><dt>Birthplace</dt><dd>Alicia, Bohol</dd></div>
                                             <div><dt>Age</dt><dd>23</dd></div>
                                             <div><dt>Civil Status</dt><dd>Single</dd></div>
@@ -260,7 +256,6 @@
                         <div class="postcard">
                             <div class="postcard-header">
                                 <p>Send me a postcard :)</p>
-                                <span class="postcard-stamp" aria-hidden="true">JG</span>
                             </div>
                             <form class="contact-form" action="https://formspree.io/f/mrpejzgk" method="POST">
                                 <label class="visually-hidden" for="contactName">Your name</label>
@@ -275,6 +270,7 @@
                                 <input type="hidden" name="_subject" value="New message from your portfolio">
                                 <button type="submit">Post it</button>
                             </form>
+                            <p class="contact-form-status" id="contactFormStatus" role="status" aria-live="polite" hidden></p>
                             <p class="postcard-email">Or write to <a href="mailto:gundayajetriel.19@gmail.com">gundayajetriel.19@gmail.com</a></p>
                         </div>
                         <ul class="social-list contact-social-list" aria-label="Find me on social media">
@@ -383,6 +379,46 @@
         });
 
         updateThemeToggle();
+
+        const contactForm = document.querySelector('.contact-form');
+        const contactFormStatus = document.getElementById('contactFormStatus');
+        const contactSubmitButton = contactForm.querySelector('button[type="submit"]');
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            contactSubmitButton.disabled = true;
+            contactSubmitButton.textContent = 'Sending...';
+            contactFormStatus.hidden = true;
+            contactFormStatus.removeAttribute('data-state');
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    body: new FormData(contactForm),
+                    headers: { Accept: 'application/json' }
+                });
+
+                if (!response.ok) {
+                    contactFormStatus.textContent = 'Your message could not be sent. Please try again.';
+                    contactFormStatus.dataset.state = 'error';
+                    contactFormStatus.hidden = false;
+                    return;
+                }
+
+                contactForm.reset();
+                contactFormStatus.textContent = 'Thanks! Your postcard has been sent.';
+                contactFormStatus.dataset.state = 'success';
+                contactFormStatus.hidden = false;
+            } catch (error) {
+                console.error('Unable to send the contact form.', error);
+                contactFormStatus.textContent = 'Unable to send your message right now. Please check your connection and try again.';
+                contactFormStatus.dataset.state = 'error';
+                contactFormStatus.hidden = false;
+            } finally {
+                contactSubmitButton.disabled = false;
+                contactSubmitButton.textContent = 'Post it';
+            }
+        });
 
         const disc = document.getElementById('disc');
         const toggle = document.getElementById('playToggle');
