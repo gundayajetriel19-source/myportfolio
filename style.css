@@ -1491,6 +1491,11 @@ h1, h2, h3 {
     padding: clamp(1rem, 4vw, 2.5rem);
 }
 
+.contact-page .contact-content,
+.contact-page .postcard {
+    min-width: 0;
+}
+
 .contact-content > h2 {
     margin-bottom: 1rem;
     color: #39272d;
@@ -1561,8 +1566,11 @@ h1, h2, h3 {
 
 .contact-form input,
 .contact-form textarea {
+    display: block;
+    appearance: none;
     width: 100%;
     min-width: 0;
+    min-height: 3rem;
     padding: 0.65rem 0.15rem;
     border: 0;
     border-bottom: 2px solid #8f3a51;
@@ -1571,11 +1579,17 @@ h1, h2, h3 {
     background: transparent;
     font: inherit;
     font-size: 0.95rem;
+    line-height: 1.5;
+    box-shadow: none;
 }
 
 .contact-form textarea {
     min-height: 7rem;
     resize: vertical;
+}
+
+.contact-form input[type="hidden"] {
+    display: none;
 }
 
 .contact-form input::placeholder,
@@ -1683,12 +1697,39 @@ body[data-theme="dark"] .postcard-email a {
 
 @media (max-width: 560px) {
     .contact-page {
-        margin-inline: -0.5rem;
-        padding: 0;
+        margin-inline: 0;
     }
 
     .contact-content {
-        padding: 0.75rem;
+        padding: 1rem;
+    }
+
+    .contact-content > h2 {
+        font-size: clamp(2rem, 8vw, 3.2rem);
+    }
+
+    .postcard {
+        padding: clamp(1.1rem, 5vw, 1.5rem);
+    }
+
+    .postcard-header {
+        gap: 0.75rem;
+    }
+
+    .postcard-stamp {
+        flex-basis: 3.5rem;
+        width: 3.5rem;
+        font-size: 1.2rem;
+    }
+
+    .contact-form {
+        gap: 0.85rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        max-width: 100%;
+        font-size: 1rem;
     }
 
     .logo {
@@ -1930,8 +1971,34 @@ body[data-theme="dark"] .postcard-email a {
     }
 
     .nav-bar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
         gap: 0.65rem;
         padding: 1rem 0.75rem;
+    }
+
+    .nav-bar > .logo {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: center;
+    }
+
+    .nav-controls {
+        display: contents;
+    }
+
+    .nav-bar nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-bar > .theme-toggle {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        align-self: center;
     }
 
     .album-story {
@@ -2006,7 +2073,6 @@ body[data-theme="dark"] .postcard-email a {
     animation: gemShine 4s ease-in-out infinite;
 }
 
-.ruby-gem-top-left { top: 17px; left: 94px; }
 .ruby-gem-top-right { top: 17px; right: 17px; animation-delay: 1s; }
 .ruby-gem-bottom-left { bottom: 17px; left: 17px; animation-delay: 2s; }
 .ruby-gem-bottom-right { bottom: 17px; right: 17px; animation-delay: 3s; }
@@ -2069,13 +2135,6 @@ button {
 @media (hover: none), (pointer: coarse) {
     .cursor-light {
         display: none;
-    }
-}
-
-@media (max-width: 930px) {
-    .ruby-gem-top-left {
-        top: 82px;
-        left: 17px;
     }
 }
 
