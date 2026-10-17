@@ -22,38 +22,6 @@
         <span class="cursor-light"></span>
     </div>
 
-    <div class="page-shell">
-        <aside class="sidebar">
-            <div class="sidebar-top">
-                <a href="index.html" class="logo-link" title="Refresh Page">
-                    <svg class="logo-icon" width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="none" stroke="#ff7aa8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <text x="50" y="62" font-size="38" font-family="Arial, sans-serif" font-weight="bold" fill="#ff7aa8" text-anchor="middle">J</text>
-                    </svg>
-                </a>
-            </div>
-
-            <div class="sidebar-bottom">
-                <ul class="social-list">
-                    <li>
-                        <a href="https://x.com/GundayaJetriel" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com/urjet_plain" target="_blank" rel="noopener noreferrer" title="Instagram">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/jetriel.gundaya.3" target="_blank" rel="noopener noreferrer" title="Facebook">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-
         <div class="content-wrap">
             <header class="nav-bar">
                 <div class="logo">JETRIEL GUNDAYA</div>
@@ -63,6 +31,7 @@
                         <a href="#projects">Projects</a>
                         <a href="#stack">Skills</a>
                         <a href="#resume">Resume</a>
+                        <a href="#contact">Contact</a>
                         <details class="games-menu">
                             <summary>Games</summary>
                             <div class="games-menu-list">
@@ -213,10 +182,7 @@
                         <div class="page-content">
                             <h2>Resume</h2>
 
-                            <p class="resume-swipe-hint">Swipe left or right to explore</p>
-                            <p class="resume-page-announcement" aria-live="polite" aria-atomic="true"></p>
-
-                            <div class="resume-box" tabindex="0" aria-label="Resume details. Use the left and right arrow keys to change sections.">
+                            <div class="resume-box" aria-label="Resume details">
                                 <div class="resume-subpage">
                                     <header class="resume-contact">
                                         <h3>JETRIEL GUNDAYA</h3>
@@ -245,7 +211,7 @@
                                     </section>
                                 </div>
 
-                                <div class="resume-subpage" hidden>
+                                <div class="resume-subpage">
                                     <section class="resume-section">
                                         <h3>Education</h3>
                                         <div class="education-list">
@@ -257,7 +223,7 @@
                                     </section>
                                 </div>
 
-                                <div class="resume-subpage" hidden>
+                                <div class="resume-subpage">
                                     <section class="resume-section">
                                         <h3>Technical Skills</h3>
                                         <ul class="resume-skills">
@@ -285,6 +251,50 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </section>
+
+                <section class="album-page contact-page" id="contact" aria-labelledby="contactHeading">
+                    <div class="page-label">Side E</div>
+                    <div class="contact-content">
+                        <h2 id="contactHeading">Let's talk!</h2>
+                        <div class="postcard">
+                            <div class="postcard-header">
+                                <p>Send me a postcard :)</p>
+                                <span class="postcard-stamp" aria-hidden="true">JG</span>
+                            </div>
+                            <form class="contact-form" action="https://formspree.io/f/mrpejzgk" method="POST">
+                                <label class="visually-hidden" for="contactName">Your name</label>
+                                <input id="contactName" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+
+                                <label class="visually-hidden" for="contactEmail">Your email</label>
+                                <input id="contactEmail" name="email" type="email" placeholder="Your email" autocomplete="email" required>
+
+                                <label class="visually-hidden" for="contactMessage">Your message</label>
+                                <textarea id="contactMessage" name="message" placeholder="Your message" rows="4" required></textarea>
+
+                                <input type="hidden" name="_subject" value="New message from your portfolio">
+                                <button type="submit">Post it</button>
+                            </form>
+                            <p class="postcard-email">Or write to <a href="mailto:gundayajetriel.19@gmail.com">gundayajetriel.19@gmail.com</a></p>
+                        </div>
+                        <ul class="social-list contact-social-list" aria-label="Find me on social media">
+                            <li>
+                                <a href="https://x.com/GundayaJetriel" target="_blank" rel="noopener noreferrer" title="X (Twitter)" aria-label="X (Twitter)">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/urjet_plain" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/jetriel.gundaya.3" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </section>
             </main>
@@ -374,126 +384,6 @@
         });
 
         updateThemeToggle();
-
-        const mobilePageNavigation = window.matchMedia('(max-width: 560px)');
-        const pageNavigationLinks = [...document.querySelectorAll('.nav-bar nav a[href^="#"]')];
-        const albumPages = [...document.querySelectorAll('.album-page')];
-        const resumeSubpages = [...document.querySelectorAll('.resume-subpage')];
-        const resumeBox = document.querySelector('.resume-box');
-        const resumePageAnnouncement = document.querySelector('.resume-page-announcement');
-        const resumePageNames = ['Personal details', 'Education', 'Skills'];
-        let activeResumePage = 0;
-        let pageNavigationInitialized = false;
-        let resumeTouchStart;
-
-        function activateResumePage(pageIndex) {
-            activeResumePage = Math.max(0, Math.min(pageIndex, resumeSubpages.length - 1));
-
-            resumeSubpages.forEach((page, index) => {
-                page.hidden = mobilePageNavigation.matches && index !== activeResumePage;
-            });
-
-            resumePageAnnouncement.textContent = `Showing resume ${resumePageNames[activeResumePage]}`;
-        }
-
-        function activateAlbumPage(pageId) {
-            const activePage = albumPages.find((page) => page.id === pageId) || albumPages[0];
-
-            activateResumePage(0);
-
-            albumPages.forEach((page) => {
-                page.hidden = mobilePageNavigation.matches && page !== activePage;
-            });
-
-            pageNavigationLinks.forEach((link) => {
-                if (link.hash === `#${activePage.id}`) {
-                    link.setAttribute('aria-current', 'page');
-                } else {
-                    link.removeAttribute('aria-current');
-                }
-            });
-        }
-
-        function updatePageNavigation() {
-            const mobileModeChanged = document.body.classList.contains('mobile-paged') !== mobilePageNavigation.matches;
-            document.body.classList.toggle('mobile-paged', mobilePageNavigation.matches);
-            document.documentElement.classList.toggle('mobile-paged', mobilePageNavigation.matches);
-
-            if (pageNavigationInitialized && !mobileModeChanged) {
-                return;
-            }
-
-            pageNavigationInitialized = true;
-            activateAlbumPage(window.location.hash.slice(1));
-        }
-
-        pageNavigationLinks.forEach((link) => {
-            link.addEventListener('click', (event) => {
-                if (!mobilePageNavigation.matches) {
-                    return;
-                }
-
-                event.preventDefault();
-                history.pushState(null, '', link.hash);
-                activateAlbumPage(link.hash.slice(1));
-            });
-        });
-
-        resumeBox.addEventListener('touchstart', (event) => {
-            if (!mobilePageNavigation.matches || event.touches.length !== 1) {
-                resumeTouchStart = undefined;
-                return;
-            }
-
-            resumeTouchStart = {
-                x: event.touches[0].clientX,
-                y: event.touches[0].clientY
-            };
-        }, { passive: true });
-
-        resumeBox.addEventListener('touchend', (event) => {
-            if (!mobilePageNavigation.matches || !resumeTouchStart || event.changedTouches.length !== 1) {
-                resumeTouchStart = undefined;
-                return;
-            }
-
-            const deltaX = event.changedTouches[0].clientX - resumeTouchStart.x;
-            const deltaY = event.changedTouches[0].clientY - resumeTouchStart.y;
-            resumeTouchStart = undefined;
-
-            if (Math.abs(deltaX) < 40 || Math.abs(deltaX) <= Math.abs(deltaY)) {
-                return;
-            }
-
-            activateResumePage(activeResumePage + (deltaX < 0 ? 1 : -1));
-        }, { passive: true });
-
-        resumeBox.addEventListener('touchcancel', () => {
-            resumeTouchStart = undefined;
-        }, { passive: true });
-
-        resumeBox.addEventListener('keydown', (event) => {
-            if (!mobilePageNavigation.matches || !['ArrowLeft', 'ArrowRight'].includes(event.key)) {
-                return;
-            }
-
-            event.preventDefault();
-            activateResumePage(activeResumePage + (event.key === 'ArrowRight' ? 1 : -1));
-        });
-
-        mobilePageNavigation.addEventListener('change', updatePageNavigation);
-        window.addEventListener('resize', updatePageNavigation);
-        window.addEventListener('hashchange', () => {
-            if (mobilePageNavigation.matches) {
-                activateAlbumPage(window.location.hash.slice(1));
-            }
-        });
-        window.addEventListener('popstate', () => {
-            if (mobilePageNavigation.matches) {
-                activateAlbumPage(window.location.hash.slice(1));
-            }
-        });
-        updatePageNavigation();
 
         const disc = document.getElementById('disc');
         const toggle = document.getElementById('playToggle');
