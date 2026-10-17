@@ -1631,6 +1631,27 @@ h1, h2, h3 {
     box-shadow: 0 2px 0 #7d1a38;
 }
 
+.contact-form button:disabled {
+    cursor: wait;
+    opacity: 0.75;
+    transform: none;
+}
+
+.contact-form-status {
+    margin-top: 1rem;
+    color: #715b63;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.contact-form-status[data-state="success"] {
+    color: #3f6b4a;
+}
+
+.contact-form-status[data-state="error"] {
+    color: #a12945;
+}
+
 .postcard-email {
     margin-top: 2rem;
     color: #715b63;
@@ -1672,8 +1693,17 @@ body[data-theme="dark"] .postcard {
 }
 
 body[data-theme="dark"] .postcard-header p,
-body[data-theme="dark"] .postcard-email {
+body[data-theme="dark"] .postcard-email,
+body[data-theme="dark"] .contact-form-status {
     color: #d6bdc7;
+}
+
+body[data-theme="dark"] .contact-form-status[data-state="success"] {
+    color: #a9d7b0;
+}
+
+body[data-theme="dark"] .contact-form-status[data-state="error"] {
+    color: #ff9caf;
 }
 
 body[data-theme="dark"] .postcard-stamp {
