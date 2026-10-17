@@ -2425,3 +2425,56 @@ body[data-theme="dark"] .spotify-player > a {
         transition: none;
     }
 }
+
+@media (max-width: 1024px) {
+    .nav-bar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 0.65rem;
+        padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.4rem);
+    }
+
+    .nav-bar > .logo {
+        grid-column: 1;
+        grid-row: 1;
+        min-width: 0;
+        align-self: center;
+        font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+        white-space: nowrap;
+    }
+
+    .nav-controls {
+        display: contents;
+    }
+
+    .nav-bar nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: clamp(0.45rem, 1.8vw, 1rem);
+    }
+
+    .nav-controls > .theme-toggle {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        align-self: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .nav-bar > .logo {
+        font-size: 0.95rem;
+    }
+
+    .nav-bar nav {
+        gap: 0.55rem;
+    }
+
+    .nav-bar nav a,
+    .nav-bar nav .games-menu > summary {
+        font-size: 0.78rem;
+    }
+}
