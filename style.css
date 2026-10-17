@@ -1277,22 +1277,6 @@ h1, h2, h3 {
     display: none;
 }
 
-.resume-swipe-hint {
-    display: none;
-}
-
-.resume-page-announcement {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
 .resume-contact {
     padding-bottom: 0.85rem;
     border-bottom: 1px solid rgba(104, 58, 66, 0.2);
@@ -1497,7 +1481,216 @@ h1, h2, h3 {
     }
 }
 
+.contact-page {
+    scroll-margin-top: 6rem;
+}
+
+.contact-content {
+    width: min(100%, 680px);
+    margin: 0 auto;
+    padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+.contact-content > h2 {
+    margin-bottom: 1rem;
+    color: #39272d;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 2.5vw, 3.2rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.postcard {
+    position: relative;
+    padding: clamp(1.25rem, 5vw, 2rem);
+    border: 1px dashed rgba(104, 58, 66, 0.36);
+    border-radius: 18px;
+    color: #39272d;
+    background: #f1e7da;
+    box-shadow: 0 18px 38px rgba(50, 20, 36, 0.12), 0 5px 12px rgba(50, 20, 36, 0.08);
+}
+
+.postcard-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4.25rem;
+    margin-bottom: 0.6rem;
+}
+
+.postcard-header p {
+    max-width: 28ch;
+    padding-top: 0.2rem;
+    color: #715b63;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.postcard-stamp {
+    display: grid;
+    flex: 0 0 4.1rem;
+    width: 4.1rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 4px dotted #f1e7da;
+    outline: 2px solid var(--rose);
+    color: #fff8fa;
+    background: var(--rose);
+    font-size: 1.45rem;
+    font-weight: 700;
+    transform: rotate(5deg);
+}
+
+.contact-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 0.65rem 0.15rem;
+    border: 0;
+    border-bottom: 2px solid #8f3a51;
+    border-radius: 0;
+    color: #39272d;
+    background: transparent;
+    font: inherit;
+    font-size: 0.95rem;
+}
+
+.contact-form textarea {
+    min-height: 7rem;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #8f7b81;
+    opacity: 1;
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+    outline: 2px solid var(--rose);
+    outline-offset: 3px;
+}
+
+.contact-form button {
+    justify-self: start;
+    padding: 0.85rem 1.5rem;
+    border: 0;
+    border-radius: 999px;
+    color: #fff8fa;
+    background: var(--rose-deep);
+    box-shadow: 0 4px 0 #7d1a38;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #7d1a38;
+}
+
+.contact-form button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #7d1a38;
+}
+
+.postcard-email {
+    margin-top: 2rem;
+    color: #715b63;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.postcard-email a {
+    color: #8f3a51;
+    font-weight: 600;
+    text-underline-offset: 0.2em;
+}
+
+.contact-social-list {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+}
+
+.contact-social-list a {
+    color: var(--soft-rose);
+}
+
+.contact-social-list a:hover {
+    color: var(--rose);
+}
+
+body[data-theme="dark"] .contact-content > h2 {
+    color: #f1e6eb;
+}
+
+body[data-theme="dark"] .postcard {
+    border-color: rgba(255, 196, 220, 0.24);
+    color: #f1e6eb;
+    background: #281b22;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.25), 0 5px 12px rgba(0, 0, 0, 0.18);
+}
+
+body[data-theme="dark"] .postcard-header p,
+body[data-theme="dark"] .postcard-email {
+    color: #d6bdc7;
+}
+
+body[data-theme="dark"] .postcard-stamp {
+    border-color: #281b22;
+}
+
+body[data-theme="dark"] .contact-form input,
+body[data-theme="dark"] .contact-form textarea {
+    border-bottom-color: rgba(255, 196, 220, 0.5);
+    color: #f1e6eb;
+}
+
+body[data-theme="dark"] .contact-form input::placeholder,
+body[data-theme="dark"] .contact-form textarea::placeholder {
+    color: #c3aab5;
+}
+
+body[data-theme="dark"] .postcard-email a {
+    color: #f3a2ba;
+}
+
 @media (max-width: 560px) {
+    .contact-page {
+        margin-inline: -0.5rem;
+        padding: 0;
+    }
+
+    .contact-content {
+        padding: 0.75rem;
+    }
+
     .logo {
         font-size: 1rem;
     }
@@ -2171,376 +2364,5 @@ body[data-theme="dark"] .spotify-player > a {
 @media (prefers-reduced-motion: reduce) {
     .theme-toggle {
         transition: none;
-    }
-}
-
-@media (max-width: 560px) {
-    html.mobile-paged {
-        height: 100%;
-        overflow: hidden;
-        overscroll-behavior: none;
-    }
-
-    body.mobile-paged {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100vh;
-        height: 100dvh;
-        min-height: 0;
-        overflow: hidden;
-        overscroll-behavior: none;
-    }
-
-    body.mobile-paged .page-shell {
-        display: flex;
-        height: 100vh;
-        height: 100dvh;
-        min-height: 0;
-        flex-direction: column;
-        overflow: hidden;
-    }
-
-    body.mobile-paged .sidebar {
-        flex: 0 0 auto;
-        padding: 0.55rem 0.8rem;
-    }
-
-    body.mobile-paged .content-wrap {
-        display: flex;
-        flex: 1 1 auto;
-        min-height: 0;
-        flex-direction: column;
-        margin: 0.35rem 0.55rem 0.55rem;
-        overflow: hidden;
-    }
-
-    body.mobile-paged .nav-bar {
-        flex: 0 0 auto;
-        padding: 0.55rem 0.4rem;
-        gap: 0;
-    }
-
-    body.mobile-paged .nav-bar > .logo {
-        display: none;
-    }
-
-    body.mobile-paged .nav-controls {
-        width: 100%;
-        flex-direction: row;
-        justify-content: center;
-        gap: 0.4rem;
-    }
-
-    body.mobile-paged .nav-bar nav {
-        gap: 0.65rem;
-    }
-
-    body.mobile-paged .nav-bar nav a {
-        font-size: 0.75rem;
-        padding: 0.35rem 0.15rem;
-    }
-
-    body.mobile-paged .nav-bar nav .games-menu > summary {
-        font-size: 0.75rem;
-        padding: 0.35rem 0.15rem;
-    }
-
-    body.mobile-paged .theme-toggle {
-        width: 34px;
-        height: 34px;
-    }
-
-    body.mobile-paged .nav-bar nav a[aria-current="page"] {
-        color: var(--rose-deep);
-        text-decoration: underline;
-        text-underline-offset: 0.3rem;
-    }
-
-    body.mobile-paged .album-story {
-        display: block;
-        flex: 1 1 auto;
-        min-height: 0;
-        margin: 0;
-        padding: 0.45rem;
-        overflow: hidden;
-    }
-
-    body.mobile-paged .album-page:not([hidden]) {
-        height: 100%;
-        padding: 0.3rem;
-        overflow: hidden;
-    }
-
-    body.mobile-paged .page-grid {
-        height: 100%;
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: auto minmax(0, 1fr);
-    }
-
-    body.mobile-paged .album-visual,
-    body.mobile-paged .page-content {
-        min-height: 0;
-        min-width: 0;
-    }
-
-    body.mobile-paged .album-visual {
-        padding: 1.7rem 0.6rem 0.5rem;
-    }
-
-    body.mobile-paged .disc {
-        width: min(56vw, 210px, 23dvh);
-        border-width: 8px;
-    }
-
-    body.mobile-paged #spotifyEmbed {
-        display: none;
-    }
-
-    body.mobile-paged .spotify-player iframe {
-        display: none;
-    }
-
-    body.mobile-paged .spotify-player {
-        width: auto;
-        min-height: 0;
-    }
-
-    body.mobile-paged .spotify-player > a {
-        margin-top: 0;
-    }
-
-    body.mobile-paged .cover-page .bio-copy {
-        margin-bottom: 0.5rem;
-        font-size: 0.94rem;
-        line-height: 1.6;
-    }
-
-    body.mobile-paged #projects .album-visual,
-    body.mobile-paged #stack .album-visual,
-    body.mobile-paged #resume .album-visual {
-        display: none;
-    }
-
-    body.mobile-paged #projects .page-grid,
-    body.mobile-paged #stack .page-grid,
-    body.mobile-paged #resume .page-grid {
-        grid-template-rows: minmax(0, 1fr);
-    }
-
-    body.mobile-paged .page-content {
-        padding: 1.4rem 0.8rem 0.65rem;
-        overflow: hidden;
-    }
-
-    body.mobile-paged .page-content h1,
-    body.mobile-paged .page-content h2 {
-        margin-bottom: 0.45rem;
-        font-size: clamp(1.55rem, 7vw, 2rem);
-    }
-
-    body.mobile-paged .project-list {
-        gap: 0.45rem;
-        margin-top: 0.6rem;
-    }
-
-    body.mobile-paged .project-card-mini {
-        padding: 0.6rem;
-    }
-
-    body.mobile-paged .project-header {
-        gap: 0.5rem;
-        margin-bottom: 0.35rem;
-        font-size: 0.78rem;
-    }
-
-    body.mobile-paged .project-card-mini p {
-        font-size: 0.7rem;
-        line-height: 1.35;
-    }
-
-    body.mobile-paged .skill-groups {
-        gap: 0.45rem;
-    }
-
-    body.mobile-paged .skill-group-title {
-        font-size: 0.75rem;
-    }
-
-    body.mobile-paged .skill-group .stack-list {
-        gap: 0.35rem;
-        margin-top: 0.3rem;
-    }
-
-    body.mobile-paged .stack-pill {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.62rem;
-    }
-
-    body.mobile-paged #resume .page-content {
-        display: flex;
-        flex-direction: column;
-        padding-top: 1.35rem;
-    }
-
-    body.mobile-paged #resume .resume-swipe-hint {
-        display: block;
-        flex: 0 0 auto;
-        margin: 0.2rem 0 0;
-        color: var(--muted);
-        font-size: 0.65rem;
-    }
-
-    body.mobile-paged #resume .resume-box {
-        display: block;
-        flex: 1 1 auto;
-        min-height: 0;
-        margin-top: 0.4rem;
-        overflow: hidden;
-        touch-action: pan-y;
-    }
-
-    body.mobile-paged #resume .resume-box:focus-visible {
-        outline: 2px solid #8f3a51;
-        outline-offset: 3px;
-    }
-
-    body.mobile-paged #resume .resume-subpage:not([hidden]) {
-        display: block;
-        height: 100%;
-    }
-
-    body.mobile-paged #resume .resume-subpage:not([hidden]) > .resume-section:first-child {
-        margin-top: 0;
-    }
-
-    body.mobile-paged #resume .resume-contact {
-        padding-bottom: 0.4rem;
-    }
-
-    body.mobile-paged #resume .resume-contact h3 {
-        font-size: 0.95rem;
-    }
-
-    body.mobile-paged #resume .resume-contact address,
-    body.mobile-paged #resume .resume-contact-links,
-    body.mobile-paged #resume .resume-contact-links a {
-        font-size: 0.64rem;
-        line-height: 1.35;
-    }
-
-    body.mobile-paged #resume .resume-section {
-        margin-top: 0.25rem;
-    }
-
-    body.mobile-paged #resume .resume-section h3 {
-        margin-bottom: 0.12rem;
-        font-size: 0.6rem;
-    }
-
-    body.mobile-paged #resume .resume-section p,
-    body.mobile-paged #resume .resume-facts dd,
-    body.mobile-paged #resume .resume-skills,
-    body.mobile-paged #resume .education-list div {
-        font-size: 0.64rem;
-        line-height: 1.3;
-    }
-
-    body.mobile-paged #resume .resume-facts {
-        gap: 0.2rem 0.5rem;
-    }
-
-    body.mobile-paged #resume .resume-facts dt,
-    body.mobile-paged #resume .education-list time {
-        font-size: 0.55rem;
-    }
-
-    body.mobile-paged #resume .education-list {
-        gap: 0.15rem;
-    }
-
-    body.mobile-paged #resume .resume-box ul {
-        margin: 0.2rem 0 0.25rem 0.8rem;
-        line-height: 1.25;
-    }
-
-    body.mobile-paged #resume .resume-skills {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.1rem 0.4rem;
-    }
-
-    @media (max-height: 700px) {
-        body.mobile-paged .nav-bar {
-            padding: 0.35rem;
-        }
-
-        body.mobile-paged .sidebar {
-            padding: 0.35rem 0.8rem;
-        }
-
-        body.mobile-paged .sidebar-top .logo-link {
-            width: 44px;
-            height: 44px;
-        }
-
-        body.mobile-paged .cover-page .page-grid {
-            grid-template-rows: minmax(0, 0.7fr) minmax(0, 1fr);
-        }
-
-        body.mobile-paged .cover-page .album-visual {
-            gap: 0.2rem;
-            padding: 1rem 0.4rem 0.2rem;
-        }
-
-        body.mobile-paged .disc {
-            width: min(22vw, 90px);
-        }
-
-        body.mobile-paged .cover-page .page-content {
-            padding: 0.45rem 0.55rem;
-        }
-
-        body.mobile-paged .cover-page .page-content .bio-heading {
-            font-size: 1.6rem;
-        }
-
-        body.mobile-paged .cover-page .bio-copy {
-            margin-bottom: 0.2rem;
-            font-size: 0.74rem;
-            line-height: 1.35;
-        }
-
-        body.mobile-paged .cover-page .bio-eyebrow,
-        body.mobile-paged .cover-page .bio-role {
-            margin-bottom: 0.35rem;
-            font-size: 0.6rem;
-        }
-
-        body.mobile-paged #projects .page-content {
-            padding: 1.2rem 0.55rem 0.4rem;
-        }
-
-        body.mobile-paged #projects .project-list {
-            gap: 0.3rem;
-            margin-top: 0.35rem;
-        }
-
-        body.mobile-paged #projects .project-card-mini {
-            padding: 0.4rem;
-        }
-
-        body.mobile-paged #projects .project-header {
-            margin-bottom: 0.2rem;
-            font-size: 0.7rem;
-        }
-
-        body.mobile-paged #projects .project-card-mini p {
-            font-size: 0.62rem;
-            line-height: 1.25;
-        }
-
-        body.mobile-paged #resume .page-content {
-            padding-top: 1rem;
-        }
     }
 }
